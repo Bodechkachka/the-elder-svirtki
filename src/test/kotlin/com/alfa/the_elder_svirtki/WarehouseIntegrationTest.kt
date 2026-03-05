@@ -6,29 +6,16 @@ import org.junit.jupiter.api.*
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.DynamicPropertyRegistry
 import org.springframework.test.context.DynamicPropertySource
 import org.testcontainers.junit.jupiter.Container
 import org.testcontainers.junit.jupiter.Testcontainers
 import org.testcontainers.mongodb.MongoDBContainer
 
-@SpringBootTest(properties = ["spring.docker.compose.enabled=false"])
-@Testcontainers
+@SpringBootTest
+@ActiveProfiles("test")
 class WarehouseIntegrationTest {
-
-    companion object {
-
-        @Container
-        val mongoContainer = MongoDBContainer("mongo:7").apply { start() }
-
-        @JvmStatic
-        @DynamicPropertySource
-        fun overrideProperties(registry: DynamicPropertyRegistry) {
-            registry.add("spring.data.mongodb.uri") {
-                mongoContainer.replicaSetUrl
-            }
-        }
-    }
 
     @Autowired
     lateinit var warehouseService: WarehouseService

@@ -2,7 +2,6 @@ package com.alfa.the_elder_svirtki.service
 
 import com.alfa.the_elder_svirtki.model.Item
 import com.alfa.the_elder_svirtki.repository.ItemRepository
-import jakarta.annotation.PostConstruct
 import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.stereotype.Service
 
@@ -51,8 +50,4 @@ class WarehouseService (
         return  itemRepository.findAll()
     }
 
-    @PostConstruct
-    fun printDatabaseName(){
-        println("=============DATABASE NAME: ${mongoTemplate.db.name}")
-    }
 }
