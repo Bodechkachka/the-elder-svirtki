@@ -27,15 +27,10 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-webmvc")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("tools.jackson.module:jackson-module-kotlin")
+    implementation("org.springframework.boot:spring-boot-starter-security")
 	developmentOnly("org.springframework.boot:spring-boot-docker-compose")
-	testImplementation("org.springframework.boot:spring-boot-restdocs")
-	testImplementation("org.springframework.boot:spring-boot-starter-data-mongodb-test")
 	testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
-	testImplementation("org.springframework.boot:spring-boot-testcontainers")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
-	testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
-	testImplementation("org.testcontainers:testcontainers-junit-jupiter")
-	testImplementation("org.testcontainers:testcontainers-mongodb")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
